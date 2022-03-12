@@ -9,8 +9,6 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
-
-
     public List<Student> listAll(){
         return studentRepository.findAll();
     }
