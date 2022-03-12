@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Student {
@@ -57,4 +58,28 @@ public class Student {
     public void setCourse(String course) {
         this.course = course;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", studentname='" + studentname + '\'' +
+                ", fee=" + fee +
+                ", course='" + course + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return fee == student.fee && Objects.equals(id, student.id) && Objects.equals(studentname, student.studentname) && Objects.equals(course, student.course);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, studentname, fee, course);
+    }
+
 }
