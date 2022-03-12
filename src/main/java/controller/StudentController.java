@@ -1,11 +1,14 @@
 package controller;
 
+import domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import service.StudentService;
+
+import java.util.List;
 
 @Controller
 public class StudentController {
@@ -40,7 +43,7 @@ public class StudentController {
     public ModelAndView showEditStudentPage(@PathVariable(name="id") int id){
         ModelAndView modelAndView = new ModelAndView("new");
 
-        Student student = studentService.get(id);
+        Student student = studentService.get((long) id);
         modelAndView.addObject("student",student);
         return modelAndView;
     }
