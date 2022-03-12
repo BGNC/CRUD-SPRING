@@ -32,6 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!--/*@thymesVar id="liststudent" type="controller"*/-->
                     <tr th:each="student:${liststudent}">
                         <td th:text="${student.id}">Id</td>
                         <td th:text="${student.studentname}">Name</td>
